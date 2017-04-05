@@ -332,15 +332,11 @@ int jouerPartie_fichier(char* nomFich)
 
     char c;
     char coup[4];
-    while(c != EOF)
+    while (fgets(coup, 4, fichier) != NULL) // On lit le fichier tant qu'on ne reçoit pas d'erreur (NULL)
     {
-        for( i=0; i<4; i++)
-        {
-            fscanf(fichier,"%c",&c);
-            coup[i] = c;
-        }
         creer_coup(&lc, coup);
     }
+
     afficher_echiquier_liste(lc);
     return 0;
 }
