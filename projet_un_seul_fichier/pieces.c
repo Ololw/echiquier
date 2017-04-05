@@ -195,7 +195,7 @@ echiquier_t jouer_coup(echiquier_t e, char* c)
 	return e;
 }
 
-int coup_valide(char* c,echiquier_t e)
+int coup_valide(char* c,echiquier_t e, couleur_t co)
 {
 	int v0 = char_colonne_valide(c[0]);
 	int v1 = char_ligne_valide(c[1]);
@@ -209,7 +209,7 @@ int coup_valide(char* c,echiquier_t e)
 	get_case(e, indice_de_ligne(c[3]), indice_de_colonne(c[2]), &cf);
 
 
-	return (v0 && v1 && v2 && v3 && (c[0] != c[2] || c[1] != c[3]) && cd.P != VIDE && (cf.P == VIDE || (cf.C != cd.C)));
+	return (v0 && v1 && v2 && v3 && (c[0] != c[2] || c[1] != c[3]) && cd.P != VIDE && (cf.P == VIDE || (cf.C != cd.C)) && cd.C == co);
 
 
 
@@ -234,7 +234,7 @@ int coup_valide(char* c,echiquier_t e)
 
 }
 
-void creer_coup(liste_coup* lc, char* c)
+int creer_coup(liste_coup* lc, char* c)
 {
 		 maillon* m = malloc(sizeof(maillon));
 		 m->suivant = NULL;
@@ -243,9 +243,10 @@ void creer_coup(liste_coup* lc, char* c)
 			m->element.couleur = BLANC;
 			m->element.num_coup = 1;
 			echiquier_t e = init_echiquier();
-			if (!coup_valide(c,e))
+			if (!coup_valide(c,e,m->element.couleur))
 			{
 				printf("COUP NON VALIDE init \n");
+				return -1;
 			}
 			else
 			{
@@ -263,9 +264,10 @@ void creer_coup(liste_coup* lc, char* c)
 				m->element.couleur = BLANC;
 
 			m->element.num_coup = lc->fin->element.num_coup+1;
-			if (!coup_valide(c, lc->fin->element.echiquier))
+			if (!coup_valide(c, lc->fin->element.echiquier,m->element.couleur))
 			{
 				printf("COUP NON VALIDE\n");
+				return -1;
 			}
 			else
 			{
@@ -275,7 +277,7 @@ void creer_coup(liste_coup* lc, char* c)
 			}
 		}
 
-	return;
+	return 0;
 }
 
 //Partie affichage console
@@ -334,10 +336,11 @@ int jouerPartie_fichier(char* nomFich)
     char coup[10];
     while (fgets(coup, 10, fichier) != NULL) // On lit le fichier tant qu'on ne reçoit pas d'erreur (NULL)
     {
-        creer_coup(&lc, coup);
+		if (!creer_coup(&lc, coup))
+			afficher_echiquier_console(lc.fin->element.echiquier);
     }
 
-    afficher_echiquier_liste(lc);
+ //   afficher_echiquier_liste(lc);
     return 0;
 }
 //PARTIE TEST VU KON C PA SI SA MARCH
