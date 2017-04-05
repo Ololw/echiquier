@@ -331,8 +331,8 @@ int jouerPartie_fichier(char* nomFich)
 	lc.fin = NULL;
 
     char c;
-    char coup[4];
-    while (fgets(coup, 4, fichier) != NULL) // On lit le fichier tant qu'on ne reçoit pas d'erreur (NULL)
+    char coup[10];
+    while (fgets(coup, 10, fichier) != NULL) // On lit le fichier tant qu'on ne reçoit pas d'erreur (NULL)
     {
         creer_coup(&lc, coup);
     }
