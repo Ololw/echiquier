@@ -63,7 +63,7 @@ echiquier_t init_echiquier()
 	for (i = 0; i < 8; i++)
 	{
 		for(j=0;j<8;j++)
-		{ 
+		{
 			set_case(&e, i, j, vide);
 		}
 	}
@@ -202,7 +202,7 @@ int coup_valide(char* c,echiquier_t e)
 	int v2 = char_colonne_valide(c[2]);
 	int v3 = char_ligne_valide(c[3]);
 
-	
+
 //	printf("\n%i\n%i\n%i\n%i\n", indice_de_colonne(c[0]), indice_de_ligne(c[1]), indice_de_colonne(c[2]), indice_de_ligne(c[3]));
 	case_t cd, cf;
 	get_case(e, indice_de_ligne(c[1]), indice_de_colonne(c[0]), &cd);
@@ -210,7 +210,7 @@ int coup_valide(char* c,echiquier_t e)
 
 
 	return (v0 && v1 && v2 && v3 && (c[0] != c[2] || c[1] != c[3]) && cd.P != VIDE && (cf.P == VIDE || (cf.C != cd.C)));
-		
+
 
 
 /*	if (v0&&v1&&v2&&v3)
@@ -229,7 +229,7 @@ int coup_valide(char* c,echiquier_t e)
 
 		}
 	}*/
-	
+
 
 
 }
@@ -316,11 +316,36 @@ void afficher_echiquier_liste(liste_coup lc)
 	return;
 }
 
+int jouerPartie_fichier(string nomFich){
+    FILE* fichier = NULL;
 
+    if (NULL == (fichier = fopen("test.txt", "r+"))
+    {
+        printf("Probleme fichier introuvable");
+        return -1;
+    }
+    liste_coup lc;
+	lc.debut = NULL;
+	lc.fin = NULL;
+
+    char c;
+    char coup[4];
+    while(c != EOF)
+    {
+        for(int i=0; i<4; i++)
+        {
+            fscanf(fichier,"%c",&c);
+            coup[i] = c;
+        }
+        creer_coup(&lc, coup);
+    }
+    afficher_echiquier_liste(lc);
+    return 0;
+}
 //PARTIE TEST VU KON C PA SI SA MARCH
-int main()
+int main(int argc, char* argv[])
 {
-    piece_t p;
+    /*piece_t p;
     p = piece_de_lettre('p');
     printf("%c",lettre_de_piece(p));
 
@@ -336,14 +361,19 @@ int main()
 	c[3] = '3';
 
 	creer_coup(&lc, c);
-	afficher_echiquier_liste(lc);
+	afficher_echiquier_liste(lc);*/
 
 
 /*	echiquier_t e;
 	e = init_echiquier();
 	set_case(&e, 7, 5, case_t_de_pc(B, NOIR));
 	afficher_echiquier_console(e); */
-
+    if(argc != 2)
+    {
+        printf("Erreur Syntaxe: commande nom_fichier");
+        return -1;
+    }
+    jouerPartie_fichier(argv[1]);
 
 
     return 0;
