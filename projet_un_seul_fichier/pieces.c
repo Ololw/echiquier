@@ -316,12 +316,14 @@ void afficher_echiquier_liste(liste_coup lc)
 	return;
 }
 
-int jouerPartie_fichier(string nomFich){
+int jouerPartie_fichier(char* nomFich)
+{
     FILE* fichier = NULL;
+	int i;
 
-    if (NULL == (fichier = fopen("test.txt", "r+"))
+    if (NULL == (fichier = fopen(nomFich, "r+")))
     {
-        printf("Probleme fichier introuvable");
+        printf("Probleme fichier introuvable\n\n");
         return -1;
     }
     liste_coup lc;
@@ -332,7 +334,7 @@ int jouerPartie_fichier(string nomFich){
     char coup[4];
     while(c != EOF)
     {
-        for(int i=0; i<4; i++)
+        for( i=0; i<4; i++)
         {
             fscanf(fichier,"%c",&c);
             coup[i] = c;
@@ -370,7 +372,7 @@ int main(int argc, char* argv[])
 	afficher_echiquier_console(e); */
     if(argc != 2)
     {
-        printf("Erreur Syntaxe: commande nom_fichier");
+        printf("\nErreur Syntaxe: commande nom_fichier\n\n");
         return -1;
     }
     jouerPartie_fichier(argv[1]);
