@@ -24,4 +24,7 @@ typedef struct
     maillon *fin;
 } liste_coup;
 
+
+echiquier_t jouer_coup(echiquier_t e, char* c);
+int coup_valide(char* c, echiquier_t e);
 void creer_coup(liste_coup lc, char* c);
