@@ -49,7 +49,7 @@ void afficher_echiquier_liste(liste_coup lc)
 int jouerPartie_fichier(char* nomFich)
 {
 	FILE* fichier = NULL;
-	int i;
+
 
 	if (NULL == (fichier = fopen(nomFich, "r+")))
 	{
@@ -60,7 +60,7 @@ int jouerPartie_fichier(char* nomFich)
 	lc.debut = NULL;
 	lc.fin = NULL;
 
-	char c;
+
 	char coup[10];
 	while (fgets(coup, 10, fichier) != NULL) // On lit le fichier tant qu'on ne reçoit pas d'erreur (NULL)
 	{
