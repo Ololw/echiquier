@@ -1,6 +1,6 @@
 H_v1 = -I../the_headers/
 B_v1 = ../bin/
-L_v1 = ../../../lib
+L_v1 = ../../../lib/
 
 cible : version1
 
@@ -11,7 +11,7 @@ main.o : main.c
 	gcc -o main.o -c $(H_v1) main.c 
 
 affichage.o : affichage.c 
-	gcc -o affichage.o -c $(H_v1) affichage.c -lvt100
+	gcc -o affichage.o -c $(L_v1)libvt100.so $(H_v1) affichage.c -lvt100
 	
 echiquier.o : echiquier.c 
 	gcc -o echiquier.o -c $(H_v1) echiquier.c 
