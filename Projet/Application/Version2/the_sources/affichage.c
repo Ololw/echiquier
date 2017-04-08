@@ -4,7 +4,7 @@
 #include "coups.h"
 
 
-//Partie affichage console
+//Partie affichage console v2
 
 void afficher_echiquier_console(echiquier_t e)
 {

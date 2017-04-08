@@ -10,7 +10,7 @@ main.o : main.c
 	gcc -o main.o -c $(H_v1) main.c 
 
 affichage.o : affichage.c 
-	gcc -o affichage.o -c $(H_v1) affichage.c 
+	gcc -o affichage.o -c $(H_v1) affichage.c -lvt100
 	
 echiquier.o : echiquier.c 
 	gcc -o echiquier.o -c $(H_v1) echiquier.c 

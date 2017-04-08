@@ -1,8 +1,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdint.h>
-//#include "echiquier.h"
-//#include "pieces.h"
+#include "fonc_carac.h"
+#include "vt100.h"
 #include "coups.h"
 
 
