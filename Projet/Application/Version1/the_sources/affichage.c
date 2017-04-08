@@ -1,7 +1,5 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "echiquier.h"
-#include "pieces.h"
 #include "coups.h"
 
 
