@@ -1,5 +1,6 @@
 H_v1 = -I../the_headers/
 B_v1 = ../bin/
+L_v1 = ../../../lib
 
 cible : version1
 
