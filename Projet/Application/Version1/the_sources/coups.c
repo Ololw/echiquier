@@ -7,6 +7,27 @@
 
 
 //PARTIE GESTION DES COUPS WALLEZ
+typedef struct
+{
+	int num_coup;
+	couleur_t couleur;
+	echiquier_t echiquier;
+	char* chaine;
+}   coup_t;
+
+typedef struct maillon maillon;
+struct maillon
+{
+	coup_t element;
+	maillon* suivant;
+};
+
+typedef struct
+{
+	maillon *debut;
+	maillon *fin;
+} liste_coup;
+
 echiquier_t jouer_coup(echiquier_t e, char* c)
 {
 	case_t ca;
@@ -31,7 +52,6 @@ int coup_valide(char* c, echiquier_t e, couleur_t co)
 	int v3 = char_ligne_valide(c[3]);
 
 
-	//	printf("\n%i\n%i\n%i\n%i\n", indice_de_colonne(c[0]), indice_de_ligne(c[1]), indice_de_colonne(c[2]), indice_de_ligne(c[3]));
 	case_t cd, cf;
 	get_case(e, indice_de_ligne(c[1]), indice_de_colonne(c[0]), &cd);
 	get_case(e, indice_de_ligne(c[3]), indice_de_colonne(c[2]), &cf);
