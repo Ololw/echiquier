@@ -38,7 +38,7 @@ int coup_valide(char* c, echiquier_t e, couleur_t co)
 	get_case(e, indice_de_ligne(c[3]), indice_de_colonne(c[2]), &cf);
 
 
-	return (v0 && v1 && v2 && v3 && (c[0] != c[2] || c[1] != c[3]) && piece_t_de_case_t(cd) != VIDE && (piece_t_de_case_t(cf) == VIDE || (couleur_t_de_case_t(cf) != couleur_t_de_case_t(cd))));
+	return (v0 && v1 && v2 && v3 && (c[0] != c[2] || c[1] != c[3]) && couleur_t_de_case_t(cd) == co && piece_t_de_case_t(cd) != VIDE && (piece_t_de_case_t(cf) == VIDE || (couleur_t_de_case_t(cf) != couleur_t_de_case_t(cd))));
 }
 
 int creer_coup(liste_coup* lc, char* c)

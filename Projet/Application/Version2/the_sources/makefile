@@ -1,10 +1,10 @@
 H_v1 = -I../the_headers/
 B_v1 = ../bin/
 
-cible : version1
+cible : version2
 
-version1 : main.o pieces.o echiquier.o coups.o affichage.o
-	gcc -o $(B_v1)version1 main.o pieces.o echiquier.o coups.o affichage.o $(H_v1)
+version2 : main.o pieces.o echiquier.o coups.o affichage.o
+	gcc -o $(B_v1)version2 main.o pieces.o echiquier.o coups.o affichage.o $(H_v1)
 	
 main.o : main.c
 	gcc -o main.o -c $(H_v1) main.c 
