@@ -5,16 +5,6 @@
 #include "echiquier.h"
 
 // PARTIE ECHIQUIER V1 LAWL
-typedef struct
-{
-	piece_t P;
-	couleur_t C;
-} case_t;
-
-typedef struct
-{
-	case_t ECHIQUIER[8][8];
-} echiquier_t;
 
 case_t case_t_de_pc(piece_t p, couleur_t c)
 {

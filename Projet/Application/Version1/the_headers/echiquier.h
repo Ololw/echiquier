@@ -14,7 +14,7 @@ typedef struct
 } echiquier_t;
 
 case_t case_t_de_pc(piece_t p, couleur_t c);
-void set_case(echiquier_t e, int i, int j, case_t ca);
+void set_case(echiquier_t* e, int i, int j, case_t ca);
 echiquier_t init_echiquier();
 piece_t piece_t_de_case_t (case_t ca);
 couleur_t couleur_t_de_case_t (case_t ca);
