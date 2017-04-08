@@ -1,6 +1,9 @@
 #include <stdio.h>
 #include <stdlib.h>
-#include "coups.h"
+//#include "echiquier.h"
+//#include "pieces.h"
+//#include "coups.h"
+#include "affichage.h"
 
 
 
@@ -59,7 +62,7 @@ int jouerPartie_fichier(char* nomFich)
 
 	char c;
 	char coup[10];
-	while (fgets(coup, 10, fichier) != NULL) // On lit le fichier tant qu'on ne reçoit pas d'erreur (NULL)
+	while (fgets(coup, 10, fichier) != NULL) // On lit le fichier tant qu'on ne reï¿½oit pas d'erreur (NULL)
 	{
 		if (!creer_coup(&lc, coup))
 			afficher_echiquier_console(lc.fin->element.echiquier);
