@@ -26,5 +26,5 @@ typedef struct
 
 
 echiquier_t jouer_coup(echiquier_t e, char* c);
-int coup_valide(char* c, echiquier_t e);
-void creer_coup(liste_coup lc, char* c);
+int coup_valide(char* c, echiquier_t e, couleur_t co);
+int creer_coup(liste_coup* lc, char* c);

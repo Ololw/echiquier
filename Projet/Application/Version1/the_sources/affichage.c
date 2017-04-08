@@ -2,8 +2,8 @@
 #include <stdlib.h>
 //#include "echiquier.h"
 //#include "pieces.h"
-//#include "coups.h"
-#include "affichage.h"
+#include "coups.h"
+//#include "affichage.h"
 
 
 
