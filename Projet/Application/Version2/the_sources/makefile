@@ -4,7 +4,7 @@ L_v1 = -L../../../lib
 
 cible : version2
 
-version1 : main.o pieces.o echiquier.o coups.o affichage.o
+version2 : main.o pieces.o echiquier.o coups.o affichage.o
 	gcc -o $(B_v1)version2 main.o pieces.o echiquier.o coups.o affichage.o $(H_v1) $(L_v1) -lvt100
 	
 main.o : main.c
