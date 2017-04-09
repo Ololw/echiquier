@@ -1,6 +1,9 @@
+/*
+	ECHEVET Theo
+	CUZIN Florian
+*/
 #include <stdio.h>
 #include <stdlib.h>
-//#include "echiquier.h"
 #include "coups.h"
 
 

@@ -1,4 +1,7 @@
-//taunpb
+/*
+	ECHEVET Theo
+	CUZIN Florian
+*/
 #include <stdio.h>
 #include <stdlib.h>
 //#include "pieces.h"

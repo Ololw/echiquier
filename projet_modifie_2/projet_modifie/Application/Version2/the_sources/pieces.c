@@ -1,3 +1,7 @@
+/*
+	ECHEVET Theo
+	CUZIN Florian
+*/
 #include <stdio.h>
 #include <stdlib.h>
 #include "../the_headers/pieces.h"
