@@ -15,6 +15,8 @@ void afficher_echiquier_vt(echiquier_t e);
 /*Affiche l'échiquier e dans la console */
 void afficher_echiquier_console(echiquier_t e);
 
-/*Affiche tout les échiquier présent dans la liste 
+/*Affiche tout les échiquier présent dans la liste de coup lc*/
 void afficher_echiquier_liste(liste_coup lc);
+
+/*Joue la partie dont les coups sont ecrit dans le fichier nomFich et renvoi une indication si il y a eu un probleme*/
 int jouerPartie_fichier(char* nomFich);
