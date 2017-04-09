@@ -5,9 +5,6 @@
 #include "coups.h"
 
 
-
-//Partie affichage console
-
 void afficher_piece(char c, affiche_func_param_t p)
 {
 	putchar(c);
@@ -20,8 +17,10 @@ void afficher_echiquier_vt(echiquier_t e)
 	couleur_t couleur_case;
 	case_t ca;
 
-	definir_coloris(NSN, NOIR, MAGENTA);
-	definir_coloris(BSN, BLANC, MAGENTA);
+	definir_coloris(NSN, RED, MAGENTA);
+	definir_coloris(BSN, WHITE, MAGENTA);
+	definir_coloris(NSB, RED, YELLOW);
+	definir_coloris(BSB, WHITE, YELLOW);
 
 	for (i = 7; i >= 0; i--)
 	{
@@ -30,7 +29,7 @@ void afficher_echiquier_vt(echiquier_t e)
 		{
 			get_case(e, i, j, &ca);
 
-			if (i + j % 2 == 0)
+			if ((i + j) % 2 == 0)
 			{
 				if (couleur_t_de_case_t(ca) == BLANC)
 					colori = BSN;
@@ -42,7 +41,7 @@ void afficher_echiquier_vt(echiquier_t e)
 				if (couleur_t_de_case_t(ca) == NOIR)
 					colori = NSB;
 				else
-					colori = NSN;
+					colori = BSB;
 			}
 			dessiner_case(colori, lettre_de_piece(piece_t_de_case_t(ca)), afficher_piece, (affiche_func_param_t)(NULL));
 		}
