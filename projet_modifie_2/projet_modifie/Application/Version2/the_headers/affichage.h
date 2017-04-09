@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdint.h>
+#include "fonc_carac.h"
+#include "vt100.h"
+#include "coups.h"
+
+
+/*Fonctions qui affiche la piece correspondante au caractere c à l'écran*/
+void afficher_piece(char c, affiche_func_param_t p);
+
+/*Fonctions qui affiche l'échiquier e grace à la librairie vt100.so*/
+void afficher_echiquier_vt(echiquier_t e);
+
+/*Affiche l'échiquier e dans la console */
+void afficher_echiquier_console(echiquier_t e);
+
+/*Affiche tout les échiquier présent dans la liste 
+void afficher_echiquier_liste(liste_coup lc);
+int jouerPartie_fichier(char* nomFich);
